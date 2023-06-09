@@ -32,5 +32,5 @@ class GetCustomersAddressViews(APIView):
 class GetCustomerDetailsAddressview(APIView):
     def get(self,request,pk):
         instances=Customers.objects.filter(id=pk)
-        ser=GetcustomerDetailsAddressSerializer(instance,many=True)
+        ser=GetcustomerDetailsAddressSerializer(instances,many=True)
         return Response(ser.data)
